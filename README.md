@@ -11,6 +11,12 @@ so commits, diffs, tests, and pull requests are easy to inspect.
 python -m unittest discover -s tests
 ```
 
+## Run Demo App
+
+```powershell
+python -m github_demo.demo_app
+```
+
 ## Example
 
 ```python
