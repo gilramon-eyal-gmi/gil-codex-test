@@ -1,6 +1,6 @@
 import unittest
 
-from github_demo.cart import CartItem, cart_total
+from github_demo.cart import CartItem, apply_discount, cart_total
 
 
 class CartTests(unittest.TestCase):
@@ -22,6 +22,13 @@ class CartTests(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             item.subtotal()
+
+    def test_apply_discount(self):
+        self.assertEqual(apply_discount(20.0, 15), 17.0)
+
+    def test_rejects_invalid_discount_percent(self):
+        with self.assertRaises(ValueError):
+            apply_discount(20.0, 120)
 
 
 if __name__ == "__main__":

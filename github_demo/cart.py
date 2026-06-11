@@ -17,3 +17,11 @@ class CartItem:
 
 def cart_total(items: list[CartItem]) -> float:
     return round(sum(item.subtotal() for item in items), 2)
+
+
+def apply_discount(total: float, percent: float) -> float:
+    if total < 0:
+        raise ValueError("total cannot be negative")
+    if percent < 0 or percent > 100:
+        raise ValueError("percent must be between 0 and 100")
+    return round(total * (1 - percent / 100), 2)
